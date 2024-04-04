@@ -1,14 +1,17 @@
 import { useRef, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+
+const apikey = '242df654-364e-4a96-93bf-ac997851cf36'
+const uuid = '96337cf6-ad7b-4a4c-9846-9433111a7236'
 
 function fetchPlayerData(username:string){
   console.log(username)
-  const resp = fetch('https://api.hypixel.net/v2/player', {
+  const resp = fetch(`https://api.hypixel.net/v2/player?uuid=${uuid}&key=${apikey}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json; charset=UTF-8",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'TRUE'
     },
 });
   return resp
